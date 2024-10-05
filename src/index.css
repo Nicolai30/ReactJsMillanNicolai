@@ -1,3 +1,13 @@
+/* 
+PALETAS DE COLORES DEL ECOMERCE
+#540d6e indigo - Violeta
+#EE4266 red (carayola) - rojo pastel
+#FFD23F Sunglow - Amraillo pastel
+#F3FCF0 Honeydew - blanco
+#1F271B Black olive - verde bosque 
+#373F35 Black olive - Color fondo
+*/
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -5,5 +15,5 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #373F35;
 }

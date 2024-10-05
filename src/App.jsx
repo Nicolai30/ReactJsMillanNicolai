@@ -1,11 +1,11 @@
-import Footer from './components/layout/footer/Footer'
-// import NavBar from './components/layout/Navbar/NavBar.Jsx'
+import NavBar from './components/layout/NavBar/NavBar'
+import { ItemListContainer } from './components/pages/ItemListContainer/ItemListContainer'
 
 function App() {
   return (
     <>
-      {/* <NavBar /> */}
-      <Footer />
+      <NavBar />
+      <ItemListContainer />
     </>
   )
 }

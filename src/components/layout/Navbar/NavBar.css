@@ -1,0 +1,31 @@
+.ContainerNavBar{
+    background-color: #EE4266;
+    font-weight: bold; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:100vw;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;    
+}
+/* Logo */
+.Logo{
+    padding: 15px;
+}
+
+/* Opciones del NavBar */
+.optionsList{
+    display: flex;
+    list-style: none;
+    gap: 22px;
+    padding: 5;
+}
+
+/* Carrito */
+.CartShop{
+    padding: 30px;
+    font-size: 25px;
+}
