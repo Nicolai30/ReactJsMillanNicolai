@@ -1,10 +1,10 @@
 .card {
-    padding: 20px; /* Espaciado interno */
-    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
     width: 250px; /* Ancho fijo */
-    margin: 10px; /* Separación entre tarjetas */
-    text-align: center; /* Centrar el contenido */
+    margin: 10px;
+    text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animación suave */
 }
 
@@ -14,21 +14,21 @@
 }
 
 .card h2 {
-    font-size: 1.5em; /* Tamaño de fuente del título */
+    font-size: 1.5em;
     margin-bottom: 10px;
-    color: #1f271b; /* Color del título */
+    color: #1f271b;
 }
 
 .card p {
     font-size: 1em;
     margin: 5px 0;
-    color: #343a40; /* Color del texto */
+    color: #343a40;
     font-weight: bold;
 }
 
 .DefaultImg {
-    width: 100%; /* Ancho total de la tarjeta */
-    height: auto; /* Ajuste automático de la altura */
+    width: 100%;
+    height: auto;
     border-radius: 8px; /* Bordes redondeados en la imagen */
     margin-top: 10px; /* Margen superior entre el contenido y la imagen */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para la imagen */

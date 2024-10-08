@@ -1,9 +1,9 @@
 .ItemListContainer {
     display: flex;
     flex-wrap: wrap; /* Asegura que las tarjetas se muevan a la siguiente línea si no caben */
-    justify-content: center; /* Centra las tarjetas */
-    gap: 20px; /* Espaciado entre las tarjetas */
-    margin-top: 120px; /* Separación del NavBar */
+    justify-content: center;
+    gap: 20px;
+    margin-top: 120px;
     padding: 20px;
 }
   
