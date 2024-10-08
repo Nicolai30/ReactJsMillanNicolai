@@ -12,10 +12,10 @@ const NavBar = () => {
 
         {/* Opciones del NavBar */}
         <ul className="optionsList">
-          <li href ="#" className="NavLinks">Cuadros y Laminas</li>
-          <li href ="#" className="NavLinks">Infantiles</li>
-          <li href ="#" className="NavLinks">Artistas Nacionales</li>
-          <li href ="#" className="NavLinks">Ofertas</li>
+          <li className="NavLinks">Cuadros y Laminas</li>
+          <li className="NavLinks">Infantiles</li>
+          <li className="NavLinks">Artistas Nacionales</li>
+          <li className="NavLinks">Ofertas</li>
         </ul>
 
         {/* Carrito */}

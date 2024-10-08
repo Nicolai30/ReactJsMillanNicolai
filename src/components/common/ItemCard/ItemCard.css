@@ -1,0 +1,41 @@
+.card {
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 250px; /* Ancho fijo */
+    margin: 10px; /* Separación entre tarjetas */
+    text-align: center; /* Centrar el contenido */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Animación suave */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Efecto hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más fuerte en hover */
+}
+
+.card h2 {
+    font-size: 1.5em; /* Tamaño de fuente del título */
+    margin-bottom: 10px;
+    color: #1f271b; /* Color del título */
+}
+
+.card p {
+    font-size: 1em;
+    margin: 5px 0;
+    color: #343a40; /* Color del texto */
+    font-weight: bold;
+}
+
+.DefaultImg {
+    width: 100%; /* Ancho total de la tarjeta */
+    height: auto; /* Ajuste automático de la altura */
+    border-radius: 8px; /* Bordes redondeados en la imagen */
+    margin-top: 10px; /* Margen superior entre el contenido y la imagen */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para la imagen */
+    transition: transform 0.2s ease-in-out; /* Transición suave en hover */
+}
+
+.DefaultImg:hover {
+    transform: scale(1.05); /* Efecto zoom al hacer hover en la imagen */
+}
+  

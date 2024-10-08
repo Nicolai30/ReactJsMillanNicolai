@@ -4,7 +4,7 @@ import { ItemListContainer } from './components/pages/ItemListContainer/ItemList
 function App() {
   return (
     <>
-      <NavBar />
+      <NavBar/>
       <ItemListContainer />
     </>
   )

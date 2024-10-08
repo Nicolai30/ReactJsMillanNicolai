@@ -1,11 +1,16 @@
-export const ItemCard = ({ title, price, stock }) => {
-    return (
-      <div style={{ border: "2px solid black", width: "200px", height: "200px" }}>
-        <h2>Titulo: {title}</h2>
-        <h3>Precio: {price}</h3>
-        <h3>Stock: {stock}</h3>
-        {/* <img src={props.image} alt="" /> */}
-      </div>
-    );
-  };
-  
+import './ItemCard.css';
+
+const ItemCard = ({ title, price,artist, stock, className,ImageSrc }) => {
+  return (
+    <div className={className}>
+      <img className="DefaultImg" src= {ImageSrc || "https://res.cloudinary.com/df0naogwq/image/upload/v1728349062/owkzsv7ivvweqtadcca6.jpg"} 
+        alt="Default-Img" />
+      <h2>{title}</h2>
+      <p>Precio: ${price}</p>
+      <p>Artista: {artist}</p>
+      {/* <p>Stock: {stock}</p> */}
+    </div>
+  );
+};
+
+export default ItemCard;
