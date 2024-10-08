@@ -1,5 +1,5 @@
 .ContainerNavBar{
-    background-color: #EE4266;
+    background-color: #274C77;
     font-weight: bold; 
     display: flex;
     justify-content: space-between;
@@ -9,8 +9,9 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000;    
+    z-index: 1000;
 }
+
 /* Logo */
 .Logo{
     padding: 15px;

@@ -5,8 +5,8 @@ const NavBar = () => {
   return (
     <>
       <div className="ContainerNavBar">
-        {/* Logo */}
-        <img className="Logo" src="https://res.cloudinary.com/df0naogwq/image/upload/v1728088328/jp2wosdbys1xbdq8udda.png" 
+        {/* LOGO https://res.cloudinary.com/df0naogwq/image/upload/v1728429215/ik1mdugawd1hjrd1fuaz.png */}
+        <img className="Logo" src="https://res.cloudinary.com/df0naogwq/image/upload/v1728429215/ik1mdugawd1hjrd1fuaz.png" 
         alt="The Art Hive - Where Creativity Thrives" />
         
 

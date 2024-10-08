@@ -1,9 +1,9 @@
-import NavBar from './components/layout/NavBar/NavBar'
+import NavBar from './components/layout/Navbar/NavBar'
 import { ItemListContainer } from './components/pages/ItemListContainer/ItemListContainer'
 
 function App() {
   //Productos
-  const items = [
+  const Items = [
     { title: "Pintura Abstracta En Blanco Y Negro", price: 1200, artist: "Steve Johnson", stock: 5, ImageSrc: "https://res.cloudinary.com/df0naogwq/image/upload/v1728353729/eqmkczrsbgn91bhyyhy1.jpg" },
     { title: "Cuadro Abstracto Naranja Y Azul", price: 1200, artist: "Paul Blenkhorn", stock: 5, ImageSrc: "https://res.cloudinary.com/df0naogwq/image/upload/v1728353873/v2ztp3nmfuz5rislpjj6.jpg" },
     { title: "Cuadro Abstracto Naranja Y Azul", price: 1200, artist: "Diana", stock: 5, ImageSrc: "https://res.cloudinary.com/df0naogwq/image/upload/v1728353565/qjzrehwhkygo09guy6u9.jpg" },
@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <NavBar/>
-      <ItemListContainer items={items} />
+      <ItemListContainer Items={Items} />
     </>
   )
 }

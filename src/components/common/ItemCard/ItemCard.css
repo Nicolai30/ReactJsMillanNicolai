@@ -28,9 +28,9 @@
 
 .DefaultImg {
     width: 100%;
-    height: auto;
+    height: 350px;
     border-radius: 8px; /* Bordes redondeados en la imagen */
-    margin-top: 10px; /* Margen superior entre el contenido y la imagen */
+    margin-top: 5px; /* Margen superior entre el contenido y la imagen */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para la imagen */
     transition: transform 0.2s ease-in-out; /* Transición suave en hover */
 }

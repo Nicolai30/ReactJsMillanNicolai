@@ -1,11 +1,11 @@
 /* 
 PALETAS DE COLORES DEL ECOMERCE
-#f3fcf0 blanco miel 
-#EE4266 red (carayola) - rojo pastel
-#1f271b negro bosque
-#343a40 negro mas claro
-#3BCEAC verde turquesa
-#FFD23F amarillo 
+#E7ECEF blanco  
+#274C77 Blue
+#6096BA celeste obscuro
+#A3CEF1 celeste claro
+#8B8C89 marron
+#343a40 negro claro 
 */
 
 :root {
@@ -15,6 +15,6 @@ PALETAS DE COLORES DEL ECOMERCE
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #f3fcf0;
+  background-color: #E7ECEF;
 }
 

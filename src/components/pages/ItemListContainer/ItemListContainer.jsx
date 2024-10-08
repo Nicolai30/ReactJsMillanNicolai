@@ -1,10 +1,10 @@
 import  "./ItemListContainer.css"
 import ItemCard from "../../common/ItemCard/ItemCard";
 
-export const ItemListContainer = ({items}) => {
+export const ItemListContainer = ({Items}) => {
   return (
     <div className="ItemListContainer">
-      {items.map((item, index) => (
+      {Items.map((item, index) => (
         <ItemCard 
           key={index}
           title={item.title} 
