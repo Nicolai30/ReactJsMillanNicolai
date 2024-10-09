@@ -1,6 +1,6 @@
 import './ItemCard.css';
 
-const ItemCard = ({ title, price,artist, stock, className,ImageSrc }) => {
+const ItemCard = ({ title, price,artist, stock, className,ImageSrc,id,Category}) => {
   return (
     <div className={className}>
       <img className="DefaultImg" src= {ImageSrc || "https://res.cloudinary.com/df0naogwq/image/upload/v1728349062/owkzsv7ivvweqtadcca6.jpg"} 
@@ -8,6 +8,8 @@ const ItemCard = ({ title, price,artist, stock, className,ImageSrc }) => {
       <h2>{title}</h2>
       <p>Precio: ${price}</p>
       <p>Artista: {artist}</p>
+      <p>Categoria: {Category}</p>
+      {/* <p>{id}</p> */}
       {/* <p>Stock: {stock}</p> */}
     </div>
   );

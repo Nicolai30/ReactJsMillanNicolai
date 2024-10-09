@@ -10,7 +10,9 @@ export const ItemListContainer = ({Items}) => {
           title={item.title} 
           price={item.price} 
           artist={item.artist} 
-          stock={item.stock} 
+          // stock={item.stock} 
+          // id={item.id}
+          Category={item.Category}
           className="card" 
           ImageSrc={item.ImageSrc}
         />
