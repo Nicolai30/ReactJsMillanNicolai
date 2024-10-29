@@ -1,11 +1,12 @@
-.ContainerNavBar{
+.ContainerNavBar {
     background-color: #274C77;
-    font-weight: bold; 
+    font-weight: bold;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width:100vw;
+    width: 100vw;
     height: 100px;
+    padding: 0 8px; /* Agrega padding para un margen a los lados */
     position: fixed;
     top: 0;
     left: 0;
@@ -13,20 +14,34 @@
 }
 
 /* Logo */
-.Logo{
-    padding: 15px;
+.Logo {
+    height: 80px; /* Tamaño fijo */
+    padding: 8px;
 }
 
 /* Opciones del NavBar */
-.optionsList{
+.optionsList {
     display: flex;
     list-style: none;
     gap: 22px;
-    padding: 5;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+.NavLinks {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    cursor: pointer;
 }
 
 /* Carrito */
-.CartShop{
-    padding: 30px;
+.CartShop {
+    display: flex;
+    align-items: center;
     font-size: 25px;
+    color: #e2c5ff;
+    padding-right: 60px;
 }
+

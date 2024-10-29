@@ -1,41 +1,42 @@
-import  "./ItemListContainer.css"
+import "./ItemListContainer.css";
 import ItemCard from "../../common/ItemCard/ItemCard";
 import { useEffect, useState } from "react";
 import { Products } from "../../../products";
+import { useParams } from "react-router-dom";
 
-
-const MyProductPromise = new Promise((res,rej) => {
-  setTimeout(()=>{                                            // Creamos una promesa para simular una carga de productos que puede tardar
-    if (Products.length === 0)                                // un tiempo en completarse. La promesa se resolverá con los productos si
-      rej("Productos vacios");                                // hay elementos en el arreglo `Products`, o se rechazará con un mensaje
-    else{                                                     // de error si el arreglo está vacío. Esto es útil para simular situaciones
-      res(Products)                                           // del mundo real, como la carga de datos desde una API.
+// Promesa que simula la carga de productos
+const MyProductPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (Products.length === 0) {
+      reject("Productos vacíos");
+    } else {
+      resolve(Products);
     }
-  }, 2500); // Simulamos una espera de 2.5 segundos
-})
+  }, 2500); // Simulación de espera de 2.5 segundos
+});
 
-export const ItemListContainer = ({}) => {
-  const [MyProducts, setMyProducts] = useState([])
+export const ItemListContainer = () => {
+  const { Category } = useParams(); 
+  const [myProducts, setMyProducts] = useState([]);
 
-  useEffect(()=>{
+  useEffect(() => {
+    const filteredProducts = Products.filter((product) => product.Category === Category);
     
-    MyProductPromise.then((data)=>{
-      //console.log(data);
-      setMyProducts(data);
-    }).catch((err)=>{
-      console.log(err)
-    }).finally(()=>{
-      console.log("finally-Siempre se ejecuta")
-    })
+    MyProductPromise.then((data) => {
+      setMyProducts(Category ? filteredProducts : data);
+    }).catch((err) => {
+      console.log(err);
+    }).finally(() => {
+      console.log("Carga de productos completada");
+    });
+  }, [Category]);
 
-  },[]) // Ejecutamos el efecto solo una vez al montar el componente
-  
   return (
     <div className="ItemListContainer">
-      {MyProducts.map((item) => (
+      {myProducts.map((item) => (
         <ItemCard 
-          key={item.id}  // id={item.id}
-          // stock={item.stock} 
+          key={item.id} 
+          id={item.id}
           title={item.title} 
           price={item.price} 
           artist={item.artist} 
@@ -47,4 +48,3 @@ export const ItemListContainer = ({}) => {
     </div>
   );
 };
-

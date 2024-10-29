@@ -1,0 +1,1 @@
+<h1 style={{ marginTop: 200,color:"green", textAlign: "center", fontSize: 50,fontWeight:"bold" }}>Nosotros</h1>

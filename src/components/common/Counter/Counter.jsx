@@ -18,16 +18,16 @@ const Counter = () => {
 //   console.log(isDark);
 
   return (
-    <div
-      style={{
-        margin: "50px",
-      }}
+     <div
+    //   style={{
+    //     margin: "50px",
+    //   }}
     >
-      <h2>Contador = {contador}</h2>
-      <button onClick={sumar}>sumar</button>
-      <button onClick={restar}>restar</button>
-      <button onClick={cambiarModo}>Cambiar modo </button>
-    </div>
+    {/* //   <h2>Contador = {contador}</h2> */}
+       <button onClick={sumar}>sumar</button>
+       <button onClick={restar}>restar</button>
+    {/* <button onClick={cambiarModo}>Cambiar modo </button> */}
+     </div>
   );
 };
 
