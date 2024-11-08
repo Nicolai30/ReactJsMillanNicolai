@@ -3,6 +3,7 @@ import { LuShoppingBasket } from "react-icons/lu"; //carrito de compras - react 
 import { Link } from "react-router-dom"
 
 export const CartShop = () => {
+  
   return (
     <Link to="/Cart" className="CartShop">
       <LuShoppingBasket />
