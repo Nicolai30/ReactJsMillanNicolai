@@ -1,13 +1,26 @@
-import "./CartShop.Css"
-import { LuShoppingBasket } from "react-icons/lu"; //carrito de compras - react icons
-import { Link } from "react-router-dom"
+import { Badge } from "@mui/material";
+import { LuShoppingBasket } from "react-icons/lu";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../../../context/CartContext";
 
 export const CartShop = () => {
-  
+  const { cart } = useContext(CartContext); // obtener la función desde el contexto
+
   return (
     <Link to="/Cart" className="CartShop">
-      <LuShoppingBasket />
-      <span>0</span>
+      <Badge
+        badgeContent={cart.length} // mostrar la cantidad total de artículos
+        style={{ padding: 1 }}
+        color="primary"
+        showZero
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "right",
+        }}
+      >
+        <LuShoppingBasket />
+      </Badge>
     </Link>
   );
 };

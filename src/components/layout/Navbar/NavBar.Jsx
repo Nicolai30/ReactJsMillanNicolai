@@ -1,7 +1,6 @@
 import {CartShop} from "../../common/CartShop/CartShop"
 import "./NavBar.Css"
 import { Link } from "react-router-dom"
-import CircularProgress from '@mui/material/CircularProgress';
 
 const NavBar = () => {
   return (
@@ -16,7 +15,7 @@ const NavBar = () => {
         {/* Opciones del NavBar */}
         <ul className="optionsList">
           <Link to="/" className="NavLinks">Todas</Link>
-          <Link to="/Category/Clasico" onClick={ <CircularProgress /> }  className="NavLinks">Clasico</Link>
+          <Link to="/Category/Clasico" className="NavLinks">Clasico</Link>
           <Link to="/Category/Modernismo" className="NavLinks">Modernismo</Link>
           <Link to="/Category/Minimalista" className="NavLinks">Minimalista</Link>
           <Link to="/Nosotros" className="NavLinks">Nosotros</Link>

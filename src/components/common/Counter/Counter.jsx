@@ -4,7 +4,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 import Button from '@mui/material/Button';
 
 const Counter = () => {
-  const [contador, setContador] = useState(0);
+  const [contador, setContador] = useState(1);
 
   const sumar = () => {
     setContador(contador + 1);
