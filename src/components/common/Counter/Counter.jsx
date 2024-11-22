@@ -3,32 +3,43 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import Button from '@mui/material/Button';
 
-const Counter = () => {
-  const [contador, setContador] = useState(0);
+const Counter = ({ stock, totalInCart, agregarAlCarrito }) => {
+  const [contador, setContador] = useState(1);
 
   const sumar = () => {
-    setContador(contador + 1);
+    if (stock - totalInCart > contador) {
+      setContador(contador + 1);
+    } else {
+      alert("Stock máximo alcanzado");
+    }
   };
+
   const restar = () => {
-    setContador(Math.max(contador - 1, 0)); // Evitar que el contador sea negativo
+    if (contador > 1) {
+      setContador(contador - 1);
+    }
   };
 
   return (
-    <div style={{color: "black", marginTop: 25,marginLeft: 50, fontWeight: "bold", fontSize: 19}}>
-      <Button
-        aria-label="reducir"
-        onClick={restar}
-      >
+    <div style={{ color: "black", marginTop: 25, marginLeft: 50, fontWeight: "bold", fontSize: 19 }}>
+      <Button aria-label="reducir" onClick={restar}>
         <RemoveIcon fontSize="small" />
       </Button>
+
       <span>{contador}</span>
-      <Button
-        aria-label="incrementar"
-        onClick={sumar}
-      >
+
+      <Button aria-label="incrementar" onClick={sumar}>
         <AddIcon fontSize="small" />
       </Button>
-    </div>  
+
+      <Button
+        variant="contained"
+        className="Button"
+        onClick={() => agregarAlCarrito(contador)}
+      >
+        Agregar
+      </Button>
+    </div>
   );
 };
 

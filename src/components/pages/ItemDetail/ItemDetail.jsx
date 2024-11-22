@@ -1,8 +1,8 @@
-import Counter from "../../common/counter/Counter";
+import Counter from "../../common/Counter/Counter";
 import "./ItemDetail.css";
-import Button from '@mui/material/Button';
 
-const ItemDetail = ({ item, agregarAlCarrito }) => {
+
+const ItemDetail = ({ item, agregarAlCarrito, totalInCart}) => {
   return (
     <div className="item-detail">
       <img className="item-image" src={item.ImageSrc} alt={item.title} />
@@ -13,8 +13,11 @@ const ItemDetail = ({ item, agregarAlCarrito }) => {
 
         <div className="price-counter-container">
           <h4>Precio: US$ {item.price}</h4>
-          <Counter stock={item.stock} agregarAlCarrito={agregarAlCarrito} />
-          <Button variant="contained" className="Button">Agregar</Button>
+          <Counter 
+            stock={item.stock} 
+            agregarAlCarrito={agregarAlCarrito} 
+            totalInCart={totalInCart} 
+          />
         </div>     
       </div>
     </div>

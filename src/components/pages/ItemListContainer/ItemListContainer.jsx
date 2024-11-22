@@ -1,116 +1,58 @@
 import "./ItemListContainer.css";
 import ItemCard from "../../common/ItemCard/ItemCard";
 import { useEffect, useState } from "react";
-import { Products } from "../../../products";
 import { useParams } from "react-router-dom";
 import { Skeleton } from "@mui/material";
-
-
-
-// Promesa que simula la carga de productos
-const MyProductPromise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    if (Products.length === 0) {
-      reject("Productos vacíos");
-    } else {
-      resolve(Products);
-    }
-  }, 2500); // Simulación de espera de 2.5 segundos
-});
+import { db } from "../../../firebaseConfig";
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import { Products } from "../../../products";
+import { AddToDriveOutlined } from "@mui/icons-material";
 
 export const ItemListContainer = () => {
   const { Category } = useParams();
   const [myProducts, setMyProducts] = useState([]);
 
   useEffect(() => {
-    const filteredProducts = Products.filter((product) => product.Category === Category);
+    const ProductsCollection = collection(db, "Products");
+    let docsRef = ProductsCollection;
 
-    MyProductPromise.then((data) => {
-      setMyProducts(Category ? filteredProducts : data);
-    }).catch((err) => {
-      console.log(err);
-    }).finally(() => {
-      console.log("Carga de productos completada");
+    if (Category) {
+      docsRef = query(ProductsCollection, where("Category", "==", Category));
+    }
+
+    getDocs(docsRef).then((res) => {
+      let arrayEntendible = res.docs.map((doc) => {
+        return { ...doc.data(), id: doc.id };
+      });
+      setMyProducts(arrayEntendible);
     });
   }, [Category]);
 
-  // if con return temprano
+  // Condición para mostrar los elementos Skeleton mientras se cargan los productos
   if (myProducts.length === 0) {
     return (
       <div className="SkeletonItem">
-        <div>
-          <Skeleton variant="rectangular" width={300} height={450} />
-          <Skeleton variant="text" width={300} height={55} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-        </div>
-        <div>
-          <Skeleton variant="rectangular" width={300} height={450} />
-          <Skeleton variant="text" width={300} height={55} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-        </div>
-        <div>
-          <Skeleton variant="rectangular" width={300} height={450} />
-          <Skeleton variant="text" width={300} height={55} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-        </div>
-        <div>
-          <Skeleton variant="rectangular" width={300} height={450} />
-          <Skeleton variant="text" width={300} height={55} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-        </div>
-        <div>
-          <Skeleton variant="rectangular" width={300} height={450} />
-          <Skeleton variant="text" width={300} height={55} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-        </div>
-        <div>
-          <Skeleton variant="rectangular" width={300} height={450} />
-          <Skeleton variant="text" width={300} height={55} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-        </div>
-        <div>
-          <Skeleton variant="rectangular" width={300} height={450} />
-          <Skeleton variant="text" width={300} height={55} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-        </div>
-        <div>
-          <Skeleton variant="rectangular" width={300} height={450} />
-          <Skeleton variant="text" width={300} height={55} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-        </div>
-        <div>
-          <Skeleton variant="rectangular" width={300} height={450} />
-          <Skeleton variant="text" width={300} height={55} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-        </div>
-        <div>
-          <Skeleton variant="rectangular" width={300} height={450} />
-          <Skeleton variant="text" width={300} height={55} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-          <Skeleton variant="text" width={300} height={35} />
-        </div>
+        {Array.from({ length: 10 }).map((_, index) => (
+          <div key={index}>
+            <Skeleton variant="rectangular" width={300} height={450} />
+            <Skeleton variant="text" width={300} height={55} />
+            <Skeleton variant="text" width={300} height={35} />
+            <Skeleton variant="text" width={300} height={35} />
+            <Skeleton variant="text" width={300} height={35} />
+          </div>
+        ))}
       </div>
     );
   }
+
+  // *****BOTTON PARA CARGAR BD******
+  // const AgregoCosas = () => {
+  //   const productsCollection = collection(db, "Products");
+
+  //   Products.forEach((Product)=>{
+  //     addDoc(productsCollection,Product)
+  //   })
+  // };
 
   return (
     <div className="ItemListContainer">
@@ -126,6 +68,10 @@ export const ItemListContainer = () => {
           ImageSrc={item.ImageSrc}
         />
       ))}
+      {/* 
+      BOTTON PARA CARGAR BD
+      <button onClick={AgregoCosas}>cargar</button> 
+      */}
     </div>
   );
 };
