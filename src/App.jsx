@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { ItemListContainer } from "./components/pages/ItemListContainer/ItemListContainer"
-import NavBar from "./components/layout/Navbar/NavBar.Jsx"
+import NavBar from "./components/layout/Navbar/NavBar.jsx"
 import ItemDetailContainer from "./components/pages/ItemDetail/ItemDetailContainer"
 import { CartContextProvider } from "./context/CartContext"
 import Cart from "./components/pages/Cart/Cart"
