@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { ItemListContainer } from "./components/pages/ItemListContainer/ItemListContainer"
 import NavBar from "./components/layout/Navbar/NavBar.jsx"
+import Checkout from "./components/pages/Checkout/Checkout.jsx"
 import ItemDetailContainer from "./components/pages/ItemDetail/ItemDetailContainer"
 import { CartContextProvider } from "./context/CartContext"
 import Cart from "./components/pages/Cart/Cart"
@@ -26,6 +27,7 @@ function App() {
 
           Nuestro compromiso es representar y promover el talento de nuestros artistas nacionales, haciendo que cada obra se convierta en una ventana hacia la cultura y el arte que define nuestra esencia. Con The Art Hive, estarás adquiriendo más que una pieza de arte: llevarás a casa una historia, una emoción y una expresión genuina de creatividad.</h4>} />
           
+          <Route path="/Checkout" element={<Checkout />} />
 
           <Route path="*" element={<h2 style={{ marginTop: 200,color:"red", textAlign: "center", fontSize: 50,fontWeight:"bold" }}>404 NOT FOUND</h2>} />
         
