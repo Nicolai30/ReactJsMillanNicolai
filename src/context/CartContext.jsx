@@ -1,66 +1,67 @@
-import { createContext, useState } from "react";
-export const CartContext = createContext();
+  import { createContext, useState } from "react";
 
-export const CartContextProvider = ({ children }) => {
-  const [cart, setCart] = useState([]);
+  export const CartContext = createContext();
 
-  const addToCart = (product) => {
-    let isInCart = cart.some((el) => el.id === product.id); 
+  export const CartContextProvider = ({ children }) => {
+    const [cart, setCart] = useState([]);
 
-    if (isInCart) {
-      console.log("se ejecuta el if");
+    //AGREGAR PRODUCTOS
+    const addToCart = (product) => {
+      if (!product.id || !product.title || !product.price || !product.quantity) {
+        // console.error("Producto inválido:", product);
+        return;
+      }
+      // Verificar si el producto ya está en el carrito
+      let isInCart = cart.some((el) => el.id === product.id);
+    
+      if (isInCart) {
+        // Si está, actualizamos la cantidad
+        const updatedCart = cart.map((elemento) => {
+          if (elemento.id === product.id) {
+            return {
+              ...elemento,
+              quantity: elemento.quantity + product.quantity,
+            };
+          }
+          return elemento; // Dejar los demás elementos sin cambios
+        });
+        setCart(updatedCart);
+      } else {
+        // Si no está, lo añadimos
+        setCart([...cart, product]);
+      }
+    };
+    
 
-      let nuevoArray = cart.map((elemento) => {
-        if (elemento.id === product.id) {
-          return {
-            ...elemento,
-            quantity: elemento.quantity + product.quantity,
-          };
-        } else {
-          return elemento;
-        }
-      });
+    //RESETEAR CARRITO
+    const resetCart = () => {
+      setCart([]);
+    };
 
-      setCart(nuevoArray);
-    } else {
-      console.log("Se agrega correctamente");
-      setCart([...cart, product]);
-    }
+    //ELIMINAR POR ID 
+    const removeById = (id) => {
+      setCart((prevCart) => prevCart.filter((elemento) => elemento.id !== id)); // Filtrar producto
+    };
+
+    //TOTAL CARRITO
+    const getTotalQuantity = (id) => {
+      const product = cart.find((elemento) => elemento.id === id);
+      return product ? product.quantity : 0; // Retorna la cantidad o 0 si no existe
+    };
+
+    //PRECIO TOTAL
+    const getTotalAmount = () => {
+      return cart.reduce((acc, elemento) => acc + elemento.price * elemento.quantity, 0); // Sumar el total
+    };
+
+    const data = {
+      cart,
+      addToCart,
+      removeById,
+      resetCart,
+      getTotalQuantity,
+      getTotalAmount,
+    };
+
+    return <CartContext.Provider value={data}>{children}</CartContext.Provider>;
   };
-
-  const resetCart = () => {
-    setCart([]);
-  };
-
-  const removeById = (id) => {
-    let arrayFiltrado = cart.filter((elemento) => elemento.id !== id);
-    setCart(arrayFiltrado);
-  };
-
-  const getTotalQuantity = (id) => {
-    const product = cart.find((elemento) => elemento.id === id);
-    if (product) {
-      return product.quantity;
-    } else {
-      return 0;
-    }
-  };
-
-  const getTotalAmount = () => {
-    let total = cart.reduce((acc, elemento) => {
-      return acc + elemento.price * elemento.quantity;
-    }, 0); 
-
-    return total;
-  };
-
-  let data = {
-    cart,
-    addToCart,
-    removeById,
-    resetCart,
-    getTotalQuantity,
-    getTotalAmount,
-  };
-  return <CartContext.Provider value={data}>{children}</CartContext.Provider>;
-};
