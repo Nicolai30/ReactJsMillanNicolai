@@ -1,5 +1,5 @@
 import {CartShop} from "../../common/CartShop/CartShop"
-import "./NavBar.Css"
+import "./NavBar.css"
 import { Link } from "react-router-dom"
 
 const NavBar = () => {
